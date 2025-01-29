@@ -226,13 +226,13 @@ def send_response(event, context, response):
 def lambda_handler(event, context):
     """Lambda function handler"""
 
-    if event['RequestType'] == 'Create' or event['RequestType'] == 'Update':
+    if event.get('RequestType') in ('Create', 'Update'):
         send_response(event, context, "SUCCESS")
 
-    if event['RequestType'] == 'Delete':
+    if event.get('RequestType') == 'Delete':
         send_response(event, context, "SUCCESS")
         return # skip function execution
-        
+
     tags_tree = defaultdict(list)
     cost_categories_arns = {}
     org_accounts = []
