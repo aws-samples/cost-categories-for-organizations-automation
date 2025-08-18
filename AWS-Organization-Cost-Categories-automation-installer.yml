@@ -39,7 +39,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Description: Build Cost Categories from AWS Organizations accounts tags.
-      Runtime: python3.9
+      Runtime: python3.13
       Timeout: 15
       Role: !GetAtt OrgCostCategoriesAutoRole.Arn
       Environment:
